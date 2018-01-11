@@ -4,9 +4,20 @@
 
 int main() {
 
+	int moves;
+	int size, spinner, end(0), attempts(0);
+
 	cout << "WELCOME TO TOPSPIN"<<endl;
 	cout << "By: Tosho Toshev" << endl <<  "-----------------------------------------" << endl;
-	int moves;
+	cout << endl;
+
+	cout << "Enter board size: ";
+	cin >> size;
+	cout << endl;
+
+	cout << "Enter spinner size: ";
+	cin >> spinner;
+	cout << endl;
 
 	cout << "Please enter a number to randomize the spinner (integer value only): ";
 	cin >> moves; cout << endl;
@@ -17,9 +28,6 @@ int main() {
 	cout << _board;
 	_board.random(moves);
 	
-	int end = 0;
-	int attempts = 0;
-
 	while (true) {
 		cout << _board;
 		cout << endl << "Attempts: " <<attempts<< endl;
@@ -31,15 +39,16 @@ int main() {
 			
 		}
 		
-		
 		int choice = 0;
 		cout << "(1) - Spin      (2) - Shift Left      (3) - Shift Right" << endl;
 		cout << "Input: "; cin >> choice;
+		
 		while ((choice > 3) || (choice < 1)) {
 			cout << endl << "Invalid input. Try again." << endl;
 			cout << "(1) - Spin      (2) - Shift Left      (3) - Shift Right" << endl;
 			cout << "Input: "; cin >> choice;
 		}
+
 		if (choice == 1) {
 			_board.spin();
 			attempts++;
